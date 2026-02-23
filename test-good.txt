@@ -1,0 +1,25 @@
+You are a senior software engineer specializing in performance optimization and security.
+
+Task: Analyze the authentication module in src/auth/ for security vulnerabilities and performance bottlenecks.
+
+Context: This is a production API handling user authentication for 50,000+ daily active users. Previous security audits flagged SQL injection risks, and recent performance monitoring shows auth endpoints averaging 800ms response time (target: <200ms).
+
+Success criteria:
+- Identify at least 3 security vulnerabilities with severity ratings (critical/high/medium/low)
+- Identify at least 2 performance bottlenecks with measured impact (e.g., "N+1 queries adding 400ms")
+- Provide concrete fixes for each issue with code examples where applicable
+- Prioritize by combined risk × impact score
+
+Output format: Markdown with two sections:
+1. Security Vulnerabilities (table: Issue | Severity | Location | Fix)
+2. Performance Bottlenecks (table: Issue | Impact | Location | Fix)
+
+Constraints:
+- Do not flag issues in test files (src/auth/__tests__/)
+- Focus only on authentication and authorization logic
+- Assume PostgreSQL database and Node.js runtime
+- Consider that database queries cannot be replaced (legacy schema)
+
+Edge cases to handle:
+- If no issues found, explain why (confidence in current implementation)
+- If issues require breaking changes, flag them separately with migration notes
